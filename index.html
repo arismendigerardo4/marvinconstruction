@@ -9,7 +9,7 @@
         
         .background-fixed {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("static/hero-bg.jpg") no-repeat center center !important;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("static/img/hero-bg.jpg") no-repeat center center !important;
             background-size: cover !important; background-position: center !important; z-index: -1;
         }
 
@@ -29,10 +29,10 @@
             padding: 20px 60px; box-sizing: border-box; z-index: 100; 
         }
 
-        /* INTENSIDAD DEL LOGO CORREGIDA */
+        /* FILTRO DE INTENSIDAD PARA EL LOGO */
         .logo-corner { 
             width: 160px; 
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.7)) saturate(1.5) contrast(1.2) brightness(1.1); 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.7)) saturate(1.6) contrast(1.3) brightness(1.1); 
             cursor: pointer; 
             transition: transform 0.3s ease;
         }
@@ -125,7 +125,7 @@
     <div class="background-fixed"></div>
 
     <header class="top-bar">
-        <img src="static/logo.png" alt="Marvin Logo" class="logo-corner" onclick="navTo('home')">
+        <img src="static/img/logo.png" alt="Marvin Logo" class="logo-corner" onclick="navTo('home')">
         <ul class="nav-links">
             <li><a href="#home" id="lnk-home" class="active-link" onclick="navTo('home')">Home</a></li>
             <li><a href="#services" id="lnk-services" onclick="navTo('services')">Services</a></li>
@@ -172,12 +172,11 @@
             <h2>Our Gallery</h2>
             <p>Take a look at some of our recent transformations and professional projects:</p>
             <div class="gallery-container">
-                <img src="static/gallery1.jpg" class="gallery-item" alt="Job 1">
-                <img src="static/gallery2.jpg" class="gallery-item" alt="Job 2">
-                <img src="static/gallery3.jpg" class="gallery-item" alt="Job 3">
+                <img src="static/img/cabinets1.jpg" class="gallery-item" alt="Job 1">
+                <img src="static/img/cabinets2.jpg" class="gallery-item" alt="Job 2">
+                <img src="static/img/exterior1.jpg" class="gallery-item" alt="Job 3">
             </div>
-        </div>
-    </section>
+        </section>
 
     <section id="quote">
         <div class="content-card">
@@ -230,7 +229,7 @@
         </div>
         <div class="chat-footer">
             <input type="text" class="chat-input" id="chatInput" placeholder="Ask something..." onkeypress="if(event.key === 'Enter') sendMsg()">
-            <button class="btn-gold" style="margin:0; padding:8px 15px; border-radius:5px warm;" onclick="sendMsg()">Send</button>
+            <button class="btn-gold" style="margin:0; padding:8px 15px; border-radius:5px;" onclick="sendMsg()">Send</button>
         </div>
     </div>
 
