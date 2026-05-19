@@ -92,6 +92,40 @@
         .float-btn:hover { transform: scale(1.1); }
         .btn-wp { background: #25d366; }
         .btn-ai { background: #f3e5ab; }
+
+        /* --- ADAPTACIÓN RESPONSIVA ÚNICAMENTE PARA MÓVILES (SÓLO MODIFICA EN PANTALLAS PEQUEÑAS) --- */
+        @media (max-width: 768px) {
+            body, html { overflow: hidden; height: 100%; }
+            
+            /* Ajustes en la navegación superior */
+            .top-bar { padding: 10px 20px; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(8px); flex-direction: column; gap: 10px; }
+            .logo-corner { width: 110px; }
+            .nav-links { margin-left: 0; gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 0.75em; }
+
+            /* Evita que las tarjetas salgan de la pantalla y permite scroll interno */
+            section { padding: 110px 15px 90px 15px; }
+            .content-card { padding: 20px; max-height: 72vh; overflow-y: auto; }
+            
+            /* Ajustes de tipografías pesadas de Home */
+            #home h1 { font-size: 2.2em !important; }
+            #home p { font-size: 1rem !important; }
+            .btn-estimate { width: 200px; padding: 10px 0; margin-top: 15px; }
+            .badge-container { gap: 10px; flex-wrap: wrap; }
+            .badge { font-size: 0.65em; padding: 4px 10px; }
+
+            /* Grillas adaptadas a una sola columna en teléfonos */
+            .process-container, .reviews-container { grid-template-columns: 1fr; gap: 12px; }
+            .media-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+            
+            /* Formulario Get a Quote en vertical */
+            #quote div[style*="display:grid"] { grid-template-columns: 1fr !important; gap: 5px; }
+
+            /* Ajuste del modal del Chat en móviles */
+            .chat-container { width: 85vw; height: 400px; right: 20px; bottom: 90px; }
+            .floating-buttons { right: 20px; bottom: 20px; gap: 10px; }
+            .float-btn { width: 48px; height: 48px; }
+        }
     </style>
 </head>
 <body>
