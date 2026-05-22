@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marvin Construction and Painting</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
     <style>
         body, html { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; height: 100%; overflow: hidden; }
         .background-fixed {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("static/img/hero-bg.jpg") no-repeat center center !important;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("static/img/hero-bg.jpg") no-repeat center center !important;
             background-size: cover !important; background-position: center !important; z-index: -1;
         }
         section {
@@ -23,10 +19,7 @@
         }
         section.active { opacity: 1; visibility: visible; }
         .top-bar { position: fixed; top: 0; left: 0; width: 100%; display: flex; align-items: center; padding: 20px 60px; z-index: 100; box-sizing: border-box; }
-        
-        /* Contenedor del Logo 3D */
-        #logo-3d-container { width: 160px; height: 55px; cursor: pointer; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4)); }
-        
+        .logo-corner { width: 150px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5)); cursor: pointer; }
         .nav-links { list-style: none; display: flex; gap: 15px; margin-left: auto; padding: 0; }
         .nav-links a { color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.8em; }
         
@@ -51,9 +44,7 @@
         
         .media-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
         .media-grid.active { display: grid; }
-        
-        .media-item { width: 100%; border-radius: 6px; object-fit: cover; height: 150px; border: 1px solid #444; transition: transform 0.3s ease; }
-        .media-item:hover { transform: scale(1.03); }
+        .media-item { width: 100%; border-radius: 6px; object-fit: cover; height: 150px; border: 1px solid #444; }
 
         .video-container { display: flex; justify-content: center; align-items: center; background: #000; border-radius: 8px; overflow: hidden; padding: 10px; margin-top: 20px; }
         video.media-video { max-width: 100%; max-height: 320px; border-radius: 4px; object-fit: contain; }
@@ -74,15 +65,11 @@
         .stars { color: #f3e5ab; margin-bottom: 8px; font-size: 1.1em; }
         .review-author { display: block; margin-top: 10px; font-weight: bold; color: #f3e5ab; text-align: right; font-size: 0.85em; }
 
-        /* Contenedor del Mapa */
-        .map-wrapper { width: 100%; height: 200px; margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid #444; }
-        .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
-
         .badge-container { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
         .badge { border: 1px solid #f3e5ab; padding: 6px 15px; border-radius: 4px; font-size: 0.75em; font-weight: bold; text-transform: uppercase; color: #f3e5ab; letter-spacing: 1px; }
         .pro-footer { margin-top: 30px; border-top: 1px solid #444; padding-top: 15px; display: flex; justify-content: space-between; font-size: 0.75em; color: #aaa; flex-wrap: wrap; gap: 10px; }
 
-        /* --- CHAT DE IA --- */
+        /* --- ESTILOS MODERNOS DEL CHAT FLOJITO DE IA --- */
         .chat-container {
             position: fixed; bottom: 100px; right: 30px; width: 350px; height: 450px;
             background: rgba(17, 17, 17, 0.95); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid #333;
@@ -99,44 +86,56 @@
         .chat-input { flex: 1; background: #222; border: 1px solid #333; padding: 10px; color: white; border-radius: 6px; outline: none; }
         .btn-chat-send { background: #f3e5ab; color: #222; border: none; padding: 0 15px; margin-left: 8px; border-radius: 6px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.8em; }
 
-        /* Botones Flotantes */
+        /* Dos Botones Flotantes Juntos */
         .floating-buttons { position: fixed; bottom: 25px; right: 30px; display: flex; gap: 15px; z-index: 2000; }
         .float-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.4); transition: 0.3s; border: none; }
         .float-btn:hover { transform: scale(1.1); }
         .btn-wp { background: #25d366; }
         .btn-ai { background: #f3e5ab; }
 
-        /* --- RESPONSIVO PARA MÓVILES --- */
+        /* --- ADAPTACIÓN RESPONSIVA PARA MÓVILES (FONDO NEGRO REPARADO) --- */
         @media (max-width: 768px) {
             body, html { overflow: hidden; height: 100%; }
+            
+            /* Ajustes en la navegación superior (Sin fondo negro opaco, usando un sutil difuminado translúcido) */
             .top-bar { padding: 10px 20px; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px); flex-direction: column; gap: 10px; }
-            #logo-3d-container { width: 130px; height: 45px; }
+            .logo-corner { width: 110px; }
             .nav-links { margin-left: 0; gap: 10px; flex-wrap: wrap; justify-content: center; }
             .nav-links a { font-size: 0.75em; }
+
+            /* Evita cortes de tarjetas y mantiene la visibilidad del fondo */
             section { padding: 140px 15px 90px 15px; }
             .content-card { padding: 20px; max-height: 65vh; overflow-y: auto; box-sizing: border-box; background: rgba(0, 0, 0, 0.82); }
+            
+            /* Ajustes de tipografías pesadas de Home */
             #home h1 { font-size: 2.2em !important; }
             #home p { font-size: 1rem !important; }
             .btn-estimate { width: 200px; padding: 10px 0; margin-top: 15px; }
             .badge-container { gap: 10px; flex-wrap: wrap; }
             .badge { font-size: 0.65em; padding: 4px 10px; }
+
+            /* Grillas adaptadas a una sola columna en teléfonos */
             .process-container, .reviews-container { grid-template-columns: 1fr; gap: 12px; }
             .media-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+            
+            /* Formulario Get a Quote en vertical */
             #quote div[style*="display:grid"] { grid-template-columns: 1fr !important; gap: 5px; }
+
+            /* Ajuste de los números de contacto en móviles para evitar cortes */
             #contact div[style*="display: flex"] { flex-direction: column; gap: 5px !important; }
             #contact p[style*="font-size: 1.8em"] { font-size: 1.4em !important; }
+
+            /* Ajuste del modal del Chat en móviles */
             .chat-container { width: 85vw; height: 400px; right: 20px; bottom: 90px; }
             .floating-buttons { right: 20px; bottom: 20px; gap: 10px; }
             .float-btn { width: 48px; height: 48px; }
-            .map-wrapper { height: 150px; }
         }
     </style>
 </head>
 <body>
     <div class="background-fixed"></div>
     <div class="top-bar">
-        <div id="logo-3d-container" onclick="showSection('home')" title="Go to Home"></div>
-        
+        <img src="static/img/logo-clean.png" class="logo-corner" onclick="showSection('home')">
         <ul class="nav-links">
             <li><a href="javascript:void(0)" onclick="showSection('home')">Home</a></li>
             <li><a href="javascript:void(0)" onclick="showSection('services')">Services</a></li>
@@ -263,11 +262,6 @@
                 <p style="font-size: 1.8em; font-weight: bold; color: #f3e5ab; margin: 5px 0;">(407) 690-3741</p>
                 <p style="font-size: 1.8em; font-weight: bold; color: #f3e5ab; margin: 5px 0;">(407) 256-6090</p>
             </div>
-
-            <div class="map-wrapper">
-                <iframe src="https://maps.google.com/maps?q=Dallas,%20GA,%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
             <div class="reviews-container">
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
@@ -334,11 +328,11 @@
             window.open("https://wa.me/14076903741?text=Hello%20Marvin%20Construction!%20I'm%20interested%20in%20your%20services.", '_blank');
         }
 
+        /* LÓGICA DE INTELIGENCIA ARTIFICIAL LOCAL (SIN ERRORES DE CONEXIÓN) */
         function toggleChat() {
             const chat = document.getElementById('ai-chat');
             chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
         }
-        
         function checkEnter(e) { if(e.key === 'Enter') processMessage(); }
         
         function processMessage() {
@@ -375,61 +369,6 @@
                 box.scrollTop = box.scrollHeight;
             }, 600);
         }
-    </script>
-
-    <script>
-        (function() {
-            const container = document.getElementById('logo-3d-container');
-            if (!container) return;
-
-            // 1. Crear Escena y Cámara
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.z = 4;
-
-            // 2. Renderizador con Transparencia y Antialias
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            container.appendChild(renderer.domElement);
-
-            // 3. Geometría y Material Estilo "Dorado Corporativo"
-            const geometry = new THREE.BoxGeometry(1.8, 0.4, 0.4);
-            const material = new THREE.MeshStandardMaterial({ 
-                color: 0xf3e5ab, 
-                metalness: 0.8, 
-                roughness: 0.15 
-            });
-            const cube = new THREE.Mesh(geometry, material);
-            scene.add(cube);
-
-            // 4. Configurar Iluminación de la Escena
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
-
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.9);
-            directionalLight.position.set(4, 4, 4);
-            scene.add(directionalLight);
-
-            // 5. Bucle de Animación Continua
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                // Rotación suave del objeto 3D
-                cube.rotation.y += 0.015;
-                cube.rotation.x = 0.25;
-
-                renderer.render(scene, camera);
-            }
-
-            // Manejar cambios de tamaño del navegador
-            window.addEventListener('resize', () => {
-                camera.aspect = container.clientWidth / container.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(container.clientWidth, container.clientHeight);
-            });
-
-            animate();
-        })();
     </script>
 </body>
 </html>
