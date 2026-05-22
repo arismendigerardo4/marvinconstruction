@@ -82,7 +82,7 @@
         .badge { border: 1px solid #f3e5ab; padding: 6px 15px; border-radius: 4px; font-size: 0.75em; font-weight: bold; text-transform: uppercase; color: #f3e5ab; letter-spacing: 1px; }
         .pro-footer { margin-top: 30px; border-top: 1px solid #444; padding-top: 15px; display: flex; justify-content: space-between; font-size: 0.75em; color: #aaa; flex-wrap: wrap; gap: 10px; }
 
-        /* --- CHAT FLOJITO DE IA --- */
+        /* --- CHAT DE IA --- */
         .chat-container {
             position: fixed; bottom: 100px; right: 30px; width: 350px; height: 450px;
             background: rgba(17, 17, 17, 0.95); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid #333;
@@ -387,8 +387,8 @@
             const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
             camera.position.z = 4;
 
-            // 2. Renderizador con Transparencia
-            const renderer = new WebGLRenderer({ alpha: true, antialias: true });
+            // 2. Renderizador con Transparencia y Antialias
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
             renderer.setSize(container.clientWidth, container.clientHeight);
             container.appendChild(renderer.domElement);
 
