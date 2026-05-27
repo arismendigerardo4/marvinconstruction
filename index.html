@@ -93,24 +93,38 @@
         .btn-wp { background: #25d366; }
         .btn-ai { background: #f3e5ab; }
 
-        /* --- ADAPTACIÓN RESPONSIVA PARA MÓVILES (FONDO NEGRO REPARADO) --- */
+        /* --- ADAPTACIÓN RESPONSIVA PARA MÓVILES (REPARADA) --- */
         @media (max-width: 768px) {
             body, html { overflow: hidden; height: 100%; }
             
-            /* Ajustes en la navegación superior (Sin fondo negro opaco, usando un sutil difuminado translúcido) */
-            .top-bar { padding: 10px 20px; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px); flex-direction: column; gap: 10px; }
-            .logo-corner { width: 110px; }
-            .nav-links { margin-left: 0; gap: 10px; flex-wrap: wrap; justify-content: center; }
-            .nav-links a { font-size: 0.75em; }
+            /* Difuminado suave estilo degradado para que la sombra se desvanezca naturalmente */
+            .top-bar { 
+                padding: 10px 20px; 
+                background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+                backdrop-filter: blur(3px); 
+                flex-direction: column; 
+                gap: 5px; 
+            }
+            .logo-corner { width: 95px; }
+            .nav-links { margin-left: 0; gap: 8px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 0.7em; }
 
-            /* Evita cortes de tarjetas y mantiene la visibilidad del fondo */
-            section { padding: 140px 15px 90px 15px; }
-            .content-card { padding: 20px; max-height: 65vh; overflow-y: auto; box-sizing: border-box; background: rgba(0, 0, 0, 0.82); }
+            /* Ajuste de posición para que las tarjetas no queden aplastadas ni cortadas por el menú */
+            section { padding: 125px 15px 85px 15px; }
             
-            /* Ajustes de tipografías pesadas de Home */
-            #home h1 { font-size: 2.2em !important; }
-            #home p { font-size: 1rem !important; }
-            .btn-estimate { width: 200px; padding: 10px 0; margin-top: 15px; }
+            .content-card { 
+                padding: 20px; 
+                max-height: 68vh; 
+                overflow-y: auto; 
+                box-sizing: border-box; 
+                background: rgba(0, 0, 0, 0.84); 
+                box-shadow: 0px 4px 20px rgba(0,0,0,0.6);
+            }
+            
+            /* Ajustes de tipografías en el Home */
+            #home h1 { font-size: 2.1em !important; }
+            #home p { font-size: 0.95rem !important; }
+            .btn-estimate { width: 190px; padding: 10px 0; margin-top: 15px; }
             .badge-container { gap: 10px; flex-wrap: wrap; }
             .badge { font-size: 0.65em; padding: 4px 10px; }
 
@@ -123,12 +137,12 @@
 
             /* Ajuste de los números de contacto en móviles para evitar cortes */
             #contact div[style*="display: flex"] { flex-direction: column; gap: 5px !important; }
-            #contact p[style*="font-size: 1.8em"] { font-size: 1.4em !important; }
+            #contact p[style*="font-size: 1.8em"] { font-size: 1.35em !important; }
 
             /* Ajuste del modal del Chat en móviles */
-            .chat-container { width: 85vw; height: 400px; right: 20px; bottom: 90px; }
-            .floating-buttons { right: 20px; bottom: 20px; gap: 10px; }
-            .float-btn { width: 48px; height: 48px; }
+            .chat-container { width: 88vw; height: 390px; right: 15px; bottom: 85px; }
+            .floating-buttons { right: 15px; bottom: 15px; gap: 8px; }
+            .float-btn { width: 46px; height: 46px; }
         }
     </style>
 </head>
@@ -328,7 +342,6 @@
             window.open("https://wa.me/14076903741?text=Hello%20Marvin%20Construction!%20I'm%20interested%20in%20your%20services.", '_blank');
         }
 
-        /* LÓGICA DE INTELIGENCIA ARTIFICIAL LOCAL (SIN ERRORES DE CONEXIÓN) */
         function toggleChat() {
             const chat = document.getElementById('ai-chat');
             chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
